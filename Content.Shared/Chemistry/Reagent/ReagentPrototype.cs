@@ -99,6 +99,26 @@ namespace Content.Shared.Chemistry.Reagent
         [DataField]
         public bool MetamorphicChangeColor { get; private set; } = true;
 
+        
+    // List of plankton components this reagent can contain
+    public List<PlanktonComponent> PlanktonComponents { get; set; } = new List<PlanktonComponent>();
+
+    // Method to check if the reagent contains plankton
+    public bool HasPlankton => PlanktonComponents.Any();
+
+    // Method to add plankton to the reagent (to be added in a solution later)
+    public void AddPlankton(PlanktonComponent plankton)
+    {
+        PlanktonComponents.Add(plankton);
+    }
+
+    // Method to remove plankton from the reagent
+    public void RemovePlankton(PlanktonComponent plankton)
+    {
+        PlanktonComponents.Remove(plankton);
+    }
+
+
         /// <summary>
         /// If this reagent is part of a puddle is it slippery.
         /// </summary>
